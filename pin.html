@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Gấu Công Tâm — Lấy Mã PIN 5 Số Cài Game</title>
+  <style>
+    :root { --bg:#0d1117; --card:#161b22; --border:#30363d; --gold:#f59e0b; --green:#22c55e; --blurple:#5865f2; --text:#f0f6fc; --muted:#8b949e; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:radial-gradient(circle at top, #1b2232 0%, #0d1117 65%); color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; display:flex; flex-direction:column; align-items:center; padding:16px 12px 48px; }
+    .ad-top { width:100%; max-width:740px; min-height:94px; display:flex; justify-content:center; align-items:center; margin-bottom:16px; overflow:hidden; }
+    .card { width:100%; max-width:600px; background:var(--card); border:1px solid var(--border); border-radius:18px; padding:26px 22px; box-shadow:0 16px 42px rgba(0,0,0,0.45); text-align:center; }
+    .brand { font-size:13px; letter-spacing:1.2px; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:6px; }
+    h1 { margin:0 0 8px; font-size:22px; line-height:1.35; }
+    .game-name { color:#fde68a; font-size:20px; font-weight:800; margin:6px 0 18px; word-break:break-word; }
+    .progress-wrap { background:#0b0f14; border:1px solid var(--border); border-radius:999px; height:14px; overflow:hidden; margin:12px auto 10px; max-width:420px; }
+    .progress-bar { height:100%; width:0%; background:linear-gradient(90deg, #f59e0b, #22c55e); transition:width 0.35s linear; }
+    .timer-txt { font-size:15px; color:var(--muted); margin-bottom:14px; }
+    .timer-txt b { color:var(--gold); font-size:18px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border:none; border-radius:12px; padding:13px 26px; font-size:16px; font-weight:800; cursor:pointer; transition:transform .12s, opacity .12s; text-decoration:none; }
+    .btn:active { transform:scale(0.97); }
+    .btn-unlock { background:linear-gradient(135deg, #f59e0b, #ea580c); color:#fff; box-shadow:0 6px 20px rgba(245,158,11,0.35); }
+    .btn-copy { background:var(--green); color:#052e16; margin-top:10px; }
+    .btn-discord { background:var(--blurple); color:#fff; font-size:14px; padding:10px 18px; margin-top:10px; }
+    .pin-box { display:none; margin:14px auto; padding:18px 16px; background:#0b0f14; border:2px dashed var(--gold); border-radius:14px; max-width:360px; }
+    .pin-label { font-size:13px; color:var(--muted); margin-bottom:4px; }
+    .pin-code { font-family:Consolas,"Courier New",monospace; font-size:44px; font-weight:900; letter-spacing:8px; color:#fde047; user-select:all; }
+    .copy-msg { font-size:13px; color:#86efac; margin-top:8px; min-height:18px; }
+    .ad-native { margin:18px auto 10px; width:100%; max-width:600px; text-align:center; }
+    .ad-box300 { margin:14px auto 4px; display:flex; justify-content:center; min-height:252px; }
+    .vip-note { margin-top:16px; padding:14px; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.28); border-radius:12px; font-size:13.5px; color:#cbd5e1; line-height:1.55; }
+    .vip-note b { color:#fde047; }
+    .note-small { font-size:12.5px; color:var(--muted); margin-top:10px; line-height:1.5; }
+  </style>
+</head>
+<body>
+  <div class="ad-top">
+    <script>
+      atOptions = {
+        'key' : 'dd2f0d0dbe9f0ed57f85025e640e1a09',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://bauval.org/22/dd2f0d0dbe9f0ed57f85025e640e1a09"></script>
+  </div>
+
+  <main class="card">
+    <div class="brand">🐻 Studio Gấu Công Tâm • Gấu Cloud Launcher</div>
+    <h1>Lấy Mã PIN 5 Số Cài Việt Hóa</h1>
+    <div id="gameName" class="game-name">Đang tải thông tin tựa game...</div>
+
+    <div id="waitSection">
+      <div class="progress-wrap"><div id="pBar" class="progress-bar"></div></div>
+      <div id="timerText" class="timer-txt">⏳ Vui lòng chờ <b>10</b> giây để mở khóa Mã PIN...</div>
+      <button id="unlockBtn" class="btn btn-unlock" style="display:none;" onclick="revealPin()">🔓 HIỆN MÃ PIN 5 SỐ NGAY</button>
+    </div>
+
+    <div id="pinBox" class="pin-box">
+      <div class="pin-label">MÃ PIN HÔM NAY (TỰ ĐỔI MỚI MỖI 24H)</div>
+      <div id="pinValue" class="pin-code">-----</div>
+      <button class="btn btn-copy" onclick="copyPin()">📋 COPY MÃ PIN</button>
+      <div id="copyMsg" class="copy-msg"></div>
+    </div>
+
+    <div class="note-small">
+      📌 Dán 5 số này vào mục <b>[CÀI ĐẶT VIỆT HÓA]</b> trên <b>Gấu Cloud Launcher</b>.<br>
+      ✅ Không giới hạn số game tải mỗi ngày — tải xong quay lại Discord lấy game khác thoải mái!
+    </div>
+
+    <div class="ad-box300">
+      <script>
+        atOptions = {
+          'key' : 'd6b1849c0fd5400817ab07c3f874a2bf',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script src="https://bauval.org/22/d6b1849c0fd5400817ab07c3f874a2bf"></script>
+    </div>
+
+    <div class="vip-note">
+      ⭐ <b>Đặc quyền Nhà Tài Trợ Vàng:</b> Xem thẳng <b>toàn bộ Mã PIN không quảng cáo (0s chờ)</b> + Mở Phòng Kín 1-1 nhờ Bác Gấu tìm nguồn game sạch + Khung Vàng Đề Xuất Game!<br>
+      <a class="btn btn-discord" href="https://discord.gg/Ac7mcqCuPB" target="_blank" rel="noopener">🚀 Quay Lại Discord Studio Gấu</a>
+    </div>
+  </main>
+
+  <div class="ad-native">
+    <script async="async" data-cfasync="false" src="https://bauval.org/21/ed8707cb13c372d2832b4ea94f1f3eb0"></script>
+    <div id="container-ed8707cb13c372d2832b4ea94f1f3eb0"></div>
+  </div>
+
+  <script>
+    const SMARTLINK_URL = "https://araplhn.org/4/24c5ce6220129272c514851d1cd156f1";
+    let decodedPin = "";
+    let decodedGame = "Game Việt Hóa Studio Gấu";
+
+    (function parseToken() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        let tok = params.get("k") || (window.location.hash ? window.location.hash.slice(1) : "");
+        if (!tok) return;
+        tok = tok.replace(/-/g, "+").replace(/_/g, "/");
+        while (tok.length % 4) tok += "=";
+        const bin = atob(tok);
+        const rawBytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) rawBytes[i] = bin.charCodeAt(i);
+        const keyStr = "GAU_STUDIO_2026_SECRET";
+        const outBytes = new Uint8Array(rawBytes.length);
+        for (let i = 0; i < rawBytes.length; i++) {
+          outBytes[i] = rawBytes[i] ^ keyStr.charCodeAt(i % keyStr.length);
+        }
+        const jsonStr = new TextDecoder("utf-8").decode(outBytes);
+        const obj = JSON.parse(jsonStr);
+        if (obj && obj.g) decodedGame = obj.g;
+        if (obj && obj.p) decodedPin = String(obj.p).trim();
+      } catch (e) {}
+    })();
+
+    document.getElementById("gameName").textContent = "🎮 " + decodedGame;
+
+    let totalSec = 10;
+    let leftSec = totalSec;
+    const pBar = document.getElementById("pBar");
+    const timerText = document.getElementById("timerText");
+    const unlockBtn = document.getElementById("unlockBtn");
+
+    if (!decodedPin) {
+      timerText.innerHTML = "❌ Đường dẫn thiếu hoặc sai mã PIN. Vui lòng bấm lại link trong kênh <b>#kho-game-việt-hóa</b> trên Discord!";
+    } else {
+      const iv = setInterval(() => {
+        leftSec--;
+        const pct = Math.min(100, Math.round(((totalSec - leftSec) / totalSec) * 100));
+        pBar.style.width = pct + "%";
+        if (leftSec > 0) {
+          timerText.innerHTML = `⏳ Vui lòng chờ <b>${leftSec}</b> giây để mở khóa Mã PIN...`;
+        } else {
+          clearInterval(iv);
+          pBar.style.width = "100%";
+          timerText.innerHTML = "✅ Đã sẵn sàng! Bấm nút bên dưới để nhận Mã PIN 5 Số:";
+          unlockBtn.style.display = "inline-flex";
+        }
+      }, 1000);
+    }
+
+    function revealPin() {
+      try { window.open(SMARTLINK_URL, "_blank", "noopener"); } catch (e) {}
+      document.getElementById("waitSection").style.display = "none";
+      document.getElementById("pinValue").textContent = decodedPin || "-----";
+      document.getElementById("pinBox").style.display = "block";
+    }
+
+    function copyPin() {
+      if (!decodedPin) return;
+      navigator.clipboard.writeText(decodedPin).then(() => {
+        document.getElementById("copyMsg").textContent = "✅ Đã copy Mã PIN " + decodedPin + "! Dán vào Gấu Launcher ngay thôi!";
+      }).catch(() => {
+        document.getElementById("copyMsg").textContent = "👉 Hãy bôi đen 5 số ở trên và bấm Ctrl+C!";
+      });
+    }
+  </script>
+
+  <script data-cfasync="false" src="https://abscloud.org/1/7c452dd912cccc74c49881ae04841cc7"></script>
+  <script data-cfasync="false" src="https://bauval.org/14/e733a6a00855461bdd5d2b5b9aae084e"></script>
+</body>
+</html>
